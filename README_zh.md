@@ -10,7 +10,7 @@
 
 **Fun-Audio-Chat** 是一个专为自然、低延迟语音交互打造的大型音频语言模型。
 
-[![论文](https://img.shields.io/badge/论文-PDF-red)](https://github.com/FunAudioLLM/Fun-Audio-Chat/blob/main/Fun-Audio-Chat-Technical-Report.pdf)
+[![论文](https://img.shields.io/badge/论文-PDF-red)](https://arxiv.org/pdf/2512.20156)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-模型-yellow)](https://huggingface.co/FunAudioLLM/Fun-Audio-Chat-8B)
 [![ModelScope](https://img.shields.io/badge/ModelScope-模型-orange)](https://modelscope.cn/FunAudioLLM/Fun-Audio-Chat-8B)
 [![演示](https://img.shields.io/badge/演示-页面-green)](https://funaudiollm.github.io/funaudiochat)
@@ -289,13 +289,13 @@ bash run_shell/run.sh
 }
 
 @misc{tan2025drvoiceparallelspeechtextvoice,
-      title={DrVoice: Parallel Speech-Text Voice Conversation Model via Dual-Resolution Speech Representations}, 
-      author={Chao-Hong Tan and Qian Chen and Wen Wang and Chong Deng and Qinglin Zhang and Luyao Cheng and Hai Yu and Xin Zhang and Xiang Lv and Tianyu Zhao and Chong Zhang and Yukun Ma and Yafeng Chen and Hui Wang and Jiaqing Liu and Xiangang Li and Jieping Ye},
-      year={2025},
-      eprint={2506.09349},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2506.09349}, 
+  title={DrVoice: Parallel Speech-Text Voice Conversation Model via Dual-Resolution Speech Representations}, 
+  author={Chao-Hong Tan and Qian Chen and Wen Wang and Chong Deng and Qinglin Zhang and Luyao Cheng and Hai Yu and Xin Zhang and Xiang Lv and Tianyu Zhao and Chong Zhang and Yukun Ma and Yafeng Chen and Hui Wang and Jiaqing Liu and Xiangang Li and Jieping Ye},
+  year={2025},
+  eprint={2506.09349},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2506.09349}, 
 }
 ```
 
