@@ -84,6 +84,7 @@ def infer_example(model_path, audio_path):
     
     # 保存wav文件
     output_uuid = str(uuid.uuid4())
+    os.makedirs('saves', exist_ok=True)
     output_path = f'saves/output_audio_{output_uuid}.wav'
     torchaudio.save(output_path, speech.cpu(), cosyvoice_model.sample_rate)
     print(f"Audio saved to: {output_path}")
