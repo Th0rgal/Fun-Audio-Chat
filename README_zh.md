@@ -56,6 +56,7 @@
 
 ## <a id="news"></a>📰 最新动态
 
+- **[2026.01.26]** 我们的前序工作 [DrVoice: Parallel Speech-Text Voice Conversation Model via Dual-Resolution Speech Representations](https://arxiv.org/abs/2506.09349) 被 ICLR 2026 接收！
 - **[2025.12.23]** Fun-Audio-Chat-8B（模型、训练和推理代码）发布，在语音问答、音频理解、语音函数调用、语音指令遵循和语音情感共鸣等多个基准测试中取得业界领先性能
 
 ---
