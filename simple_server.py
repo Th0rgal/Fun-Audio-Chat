@@ -1,5 +1,5 @@
 import os
-os.environ.setdefault("TORCH_CUDA_ARCH_LIST", "9.0+PTX")
+os.environ.setdefault("TORCH_CUDA_ARCH_LIST", "12.1+PTX")
 import sys
 import uuid
 import json
@@ -8,6 +8,12 @@ import time
 import torch
 torch._C._jit_set_nvfuser_enabled(False)
 torch._C._jit_set_texpr_fuser_enabled(False)
+try:
+    torch.backends.cuda.enable_flash_sdp(False)
+    torch.backends.cuda.enable_mem_efficient_sdp(False)
+    torch.backends.cuda.enable_math_sdp(True)
+except Exception:
+    pass
 import torchaudio
 import soundfile as sf
 import librosa
@@ -92,6 +98,15 @@ def load_model_if_needed(model_id: str):
         trust_remote_code=True,
         device_map='auto'
     ).eval()
+
+    if hasattr(model, 'config') and hasattr(model.config, 'attn_implementation'):
+        model.config.attn_implementation = 'eager'
+    if hasattr(model, 'config'):
+        setattr(model.config, '_attn_implementation', 'eager')
+    if hasattr(model, 'language_model') and hasattr(model.language_model, 'config') and hasattr(model.language_model.config, 'attn_implementation'):
+        model.language_model.config.attn_implementation = 'eager'
+    if hasattr(model, 'language_model') and hasattr(model.language_model, 'config'):
+        setattr(model.language_model.config, '_attn_implementation', 'eager')
 
     if hasattr(model, 'sp_gen_kwargs'):
         # Match web_demo defaults to avoid CRQ dimension mismatches.
@@ -513,6 +528,7 @@ def chunk_text(text: str, chunk_size: int = 48):
 
 def get_generation_kwargs():
     kwargs = dict(DEFAULT_S2M_GEN_KWARGS)
+    kwargs['use_cache'] = True
 
     if not kwargs.get('bad_words_ids'):
         try:
